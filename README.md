@@ -35,14 +35,20 @@ Tasks persist across app restarts using AsyncStorage.
 ## Architecture
 
 ```
-
 src/
+
 types/ Domain types (Task, TaskInput, TaskFilters)
+
 services/ TaskService interface + mock API backed by AsyncStorage
+
 store/ Zustand store: state + actions (all business logic)
+
 utils/ Pure helpers: filterTasks, validation, dates
+
 components/ Reusable presentational components (TaskItem, Filter , SearchBar, TaskFormModal, StateViews)
+
 screens/ TaskListScreen (composes store + components)
+
 tests/ Unit and component tests
 
 ## Technical Decisions
