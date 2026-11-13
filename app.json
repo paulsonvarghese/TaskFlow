@@ -1,0 +1,13 @@
+{
+  "name": "TaskFlow",
+  "slug": "TaskFlow",
+  "android": {
+    "package": "com.taskflow.app"
+   
+  },
+  "extra": {
+    "eas": {
+      "projectId": "c6371c95-d7d2-4d4c-a201-c94bc17bca86"
+    }
+  }
+}
