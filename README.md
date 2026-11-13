@@ -53,22 +53,22 @@ tests/ Unit and component tests
 
 ## Technical Decisions
 
-1. State Management – Zustand
+ 1. State Management – Zustand
 
-I used Zustand to manage tasks, filters and application state. Since this application has a relatively small state structure, Zustand keeps things simple without requiring much boilerplate. I also used selectors to avoid unnecessary component re-renders.
+Zustand was chosen to manage tasks, filters and application state. Given the relatively small state structure, it provides a simple solution with minimal boilerplate. Selectors are used to minimize unnecessary component re-renders.
 
-2. Service Layer
+ 2. Service Layer
 
-I separated task operations from the store using a TaskService interface. The current implementation is a mock API backed by AsyncStorage, and storage errors are converted into a TaskServiceError with a readable message.
+A `TaskService` interface separates task operations from the store. The current implementation uses a mock API backed by AsyncStorage. Storage errors are converted into `TaskServiceError` with readable error messages.
 
 3. Code Structure
 
-I separated the application into screens, reusable components, services, store, utilities and types. Filtering and form validation are handled outside the UI components to keep them focused on rendering and user interactions.
+The application is organized into screens, reusable components, services, store, utilities and types. Filtering and form validation logic are kept outside UI components to maintain separation of concerns and improve maintainability.
 
-4. Local Persistence
+ 4. Local Persistence
 
-AsyncStorage is used to save tasks between app restarts. The service handles reading and writing data, while Zustand maintains the in-memory state.
+AsyncStorage provides local persistence across app restarts. The service layer handles reading and writing task data, while Zustand maintains the in-memory application state.
 
-5. Performance
+ 5. Performance
 
-I used FlatList for rendering tasks, React.memo for reusable components, useMemo for filtered data and useCallback for screen callbacks. Zustand selectors are also used to limit unnecessary updates.
+FlatList is used for efficient task rendering. React.memo, useMemo and useCallback help reduce unnecessary rendering and recalculation. Zustand selectors further limit component updates to relevant state changes.
